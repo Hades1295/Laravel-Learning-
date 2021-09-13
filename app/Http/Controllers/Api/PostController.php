@@ -18,19 +18,6 @@ class PostController extends Controller
         return response($post, 200); 
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {   
-      // dd($request->all);
-        return Post::create($request->all());
-    }
-
     /**
      * Display the specified resource.
      *
@@ -63,9 +50,12 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        return Post::destroy($id);
-    }
+    {   
+        $post = Post::destroy($id);
+       return response()->json([
+          "message" => "Post record Deleted"
+        ], 200);
+    } 
 
     public function create(Request $request) {
        // dd($request->all());//exit;

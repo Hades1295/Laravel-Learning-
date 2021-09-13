@@ -5,22 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Crud extends Model
 {
     use HasFactory;
-    protected $table = 'products';
+    protected $table = 'users_info';
     public $timestamps = true;
-
-    protected $casts = [
-        'price' => 'float'
-    ];
 
     protected $fillable = [
         'name',
-        'description',
-        'sku',
-        'price',
+        'email',
+        'address',
         'created_at',
-        'image'
     ];
 }
